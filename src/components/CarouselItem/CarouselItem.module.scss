@@ -1,0 +1,40 @@
+.left {
+  min-width: 20%;
+  min-height: 80%;
+  background-color: aqua;
+  p {
+    // position: relative;
+  }
+  button {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+  }
+}
+.right {
+  min-width: 20%;
+  min-height: 80%;
+  background-color: aqua;
+  p {
+    // background-color: aqua;
+    // position: relative;
+  }
+  button {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+  }
+}
+.center {
+  min-width: 20%;
+  min-height: 80%;
+  background-color: aqua;
+  p {
+    // position: relative;
+  }
+  button {
+    position: absolute;
+    // right: 0%;
+    top: 50%;
+  }
+}
