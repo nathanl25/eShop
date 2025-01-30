@@ -6,7 +6,7 @@ const FilteredItemsDisplay = () => {
   const { category } = useParams();
   const { data, error, fetch } = useQuery({
     fetchFn: filterStoreCategory,
-    args: [category],
+    args: ['mango'],
   });
   console.log(data);
   console.log(fetch);

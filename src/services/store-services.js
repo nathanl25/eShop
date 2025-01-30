@@ -42,3 +42,14 @@ export const filterStoreCategory = async (category) => {
   console.log(docArr);
   return docArr;
 };
+
+export const findStoreItem = async (id) => {
+  const icecreamRef = collection(db, 'ice-cream');
+  const q = query(icecreamRef, where('__name__', '==', id));
+  const snapshot = await getDocs(q);
+  if (snapshot.empty) {
+    throw new Error('No item matches this ID');
+  }
+  const docArr = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return docArr[0];
+};
