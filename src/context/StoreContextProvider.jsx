@@ -10,8 +10,9 @@ const StoreContextProvider = ({ children }) => {
   //   const storeDB = useQuery({ fetchFn: getStoreItems });
   //   const cartDB = useQuery({ fetchFn: getCartItems });
   const [cartDB, setCartDB] = useState([]);
+  const [cartStatus, setCartStatus] = useState('PENDING');
   useEffect(() => {
-    const cartUnsub = cartSubscription(setCartDB);
+    const cartUnsub = cartSubscription(setCartDB, setCartStatus);
     return () => cartUnsub();
   }, []);
   const [storeDB, setStoreDB] = useState([]);
@@ -24,6 +25,7 @@ const StoreContextProvider = ({ children }) => {
       value={{
         storeDB,
         cartDB,
+        cartStatus,
       }}
     >
       {children}

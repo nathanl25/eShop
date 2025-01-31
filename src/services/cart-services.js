@@ -26,15 +26,16 @@ export const getItemByRef = async (pointer) => {
   return { id: snapshot.id, ...snapshot.data() };
 };
 
-export const cartSubscription = (callback) => {
+export const cartSubscription = (setData, setStatus) => {
+  setStatus('LOADING');
   const cartRef = collection(db, 'eshop-cart');
   const unsub = onSnapshot(cartRef, (snapshot) => {
     const cartData = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
-    callback(cartData);
+    setStatus('SUCCESS');
+    setData(cartData);
   });
-  console.log();
   return unsub;
 };
