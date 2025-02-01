@@ -1,14 +1,10 @@
 import { createContext } from 'react';
-import { getStoreItems, storeSubscription } from '../services/store-services';
-import { getCartItems } from '../services/cart-services';
+import { storeSubscription } from '../services/store-services';
 import { cartSubscription } from '../services/cart-services';
 import { useEffect, useState } from 'react';
-// import { useQuery } from '../hooks/useQuery';
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {
-  //   const storeDB = useQuery({ fetchFn: getStoreItems });
-  //   const cartDB = useQuery({ fetchFn: getCartItems });
   const [cartDB, setCartDB] = useState([]);
   const [cartStatus, setCartStatus] = useState('PENDING');
   useEffect(() => {
@@ -16,8 +12,9 @@ const StoreContextProvider = ({ children }) => {
     return () => cartUnsub();
   }, []);
   const [storeDB, setStoreDB] = useState([]);
+  const [storeStatus, setStoreStatus] = useState('PENDING');
   useEffect(() => {
-    const storeUnsub = storeSubscription(setStoreDB);
+    const storeUnsub = storeSubscription(setStoreDB, setStoreStatus);
     return () => storeUnsub();
   }, []);
   return (
@@ -26,6 +23,7 @@ const StoreContextProvider = ({ children }) => {
         storeDB,
         cartDB,
         cartStatus,
+        storeStatus,
       }}
     >
       {children}

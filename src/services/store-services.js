@@ -16,17 +16,27 @@ export const getStoreItems = async () => {
   const icecreamRef = collection(db, 'ice-cream');
   const snapshot = await getDocs(icecreamRef);
   const docArr = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  //   console.log(docArr);
+  console.log(docArr);
   return docArr;
 };
 
-export const storeSubscription = (callback) => {
+export const getFavouriteItems = async () => {
+  const icecreamRef = collection(db, 'ice-cream');
+  const q = query(icecreamRef, where('favourited', '==', true));
+  const snapshot = await getDocs(q);
+  const docArr = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return docArr;
+};
+
+export const storeSubscription = (callback, setStatus) => {
+  setStatus('LOADING');
   const storeRef = collection(db, 'ice-cream');
   const unsub = onSnapshot(storeRef, (snapshot) => {
     const storeData = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
+    setStatus('SUCCESS');
     callback(storeData);
   });
   return unsub;
