@@ -12,7 +12,7 @@ const HomePage = () => {
     if (curr.favourited) {
       acc.push(curr);
     }
-    console.log(curr);
+    // console.log(curr);
     return acc;
   }, []);
   const doStuff = () => {};

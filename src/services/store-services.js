@@ -28,6 +28,21 @@ export const getFavouriteItems = async () => {
   return docArr;
 };
 
+export const favouriteSubscription = (callback, setStatus) => {
+  setStatus('LOADING');
+  const storeRef = collection(db, 'ice-cream');
+  const q = query(storeRef, where('favourited', '==', true));
+  const unsub = onSnapshot(q, (querySnapshot) => {
+    const favourites = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setStatus('SUCCESS');
+    callback(favourites);
+  });
+  return unsub;
+};
+
 export const storeSubscription = (callback, setStatus) => {
   setStatus('LOADING');
   const storeRef = collection(db, 'ice-cream');
