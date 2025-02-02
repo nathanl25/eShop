@@ -1,28 +1,44 @@
 import classes from './CarouselItem.module.scss';
-
-const CarouselItem = ({ variant, children, carouselAction }) => {
+import { Link } from 'react-router';
+import { NavLink } from 'react-router';
+import { useContext } from 'react';
+import { StoreContext } from '../../context/StoreContextProvider';
+const CarouselItem = ({ variant, itemFav, carouselAction, id }) => {
+  const { storeStatus } = useContext(StoreContext);
+  // const id = itemFav.id;
+  console.log(id);
   return (
     <>
-      {variant == 'left' && (
+      {storeStatus === 'SUCCESS' && variant === 'left' && (
         <div className={classes.left}>
-          <p onClick={carouselAction}>{children}</p>
+          <NavLink to={`/items/${id}`}>
+            <p>{id}</p>
+            {/* <p onClick={carouselAction}>{id}</p> */}
+          </NavLink>
           <button value={-1} onClick={carouselAction}>
             {'<'}
           </button>
         </div>
       )}
-      {variant == 'right' && (
+      {storeStatus === 'SUCCESS' && variant === 'right' && (
         <div className={classes.right}>
-          <p onClick={carouselAction}>{children}</p>
+          <Link to={`/items/${id}`}>
+            <p>{id}</p>
+            {/* <p onClick={carouselAction}>{id}</p> */}
+          </Link>
+
           <button value={1} onClick={carouselAction}>
             {'>'}
           </button>
         </div>
       )}
-      {variant == 'center' && (
+      {storeStatus === 'SUCCESS' && variant === 'center' && (
         <div className={classes.center}>
-          <p onClick={carouselAction}>{children}</p>
-          <button onClick={carouselAction}>{'X'}</button>
+          <Link to={`/items/${id}`}>
+            <p>{id}</p>
+            {/* <p onClick={carouselAction}>{id}</p> */}
+          </Link>
+          {/* <button onClick={carouselAction}>{'X'}</button> */}
         </div>
       )}
     </>
