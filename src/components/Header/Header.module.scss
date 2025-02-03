@@ -28,8 +28,9 @@ nav {
 .heading {
   color: clr.$cream;
   font-family: fnt.$font_heading;
-  font-style: italic;
-  font-size: 2.5em;
+  //   font-style: italic;
+  font-weight: bolder;
+  font-size: 2.75em;
 }
 .cart {
   font-family: fnt.$font_body;

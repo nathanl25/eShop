@@ -15,7 +15,7 @@ const Header = () => {
         <div className={classes.wrapper}> </div>
         <div className={classes.wrapper}>
           <NavLink className={classes.link} to="/">
-            <h1 className={classes.heading}>Poopity Scoopity</h1>
+            <h1 className={classes.heading}>Bimi Ice-Cream</h1>
           </NavLink>
         </div>
         <div className={classes.wrapper}>

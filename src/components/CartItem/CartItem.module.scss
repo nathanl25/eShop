@@ -22,10 +22,17 @@
   color: clr.$ivory;
 }
 .adjuster_wrapper {
+  font-family: fnt.$font_body;
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 1.25em;
   gap: 1em;
+  button {
+    border: 2px solid clr.$bronze;
+    color: clr.$charcoal;
+    background-color: clr.$ivory;
+  }
 }
 
 a {
