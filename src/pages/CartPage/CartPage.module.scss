@@ -1,0 +1,17 @@
+@use '../../scss/variables/colours' as clr;
+@use '../../scss/variables/fonts' as fnt;
+@use '../../scss/partials/media_queries' as mq;
+.container {
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding-bottom: 2em;
+}
+.cart__total {
+  padding-right: 10%;
+  font-family: fnt.$font_heading;
+  color: clr.$ivory;
+  font-size: 2em;
+  text-align: right;
+}

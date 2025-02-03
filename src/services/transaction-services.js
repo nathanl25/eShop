@@ -1,17 +1,4 @@
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  getDoc,
-  getDocs,
-  onSnapshot,
-  updateDoc,
-  query,
-  where,
-  runTransaction,
-  //   transaction,
-} from 'firebase/firestore';
+import { doc, runTransaction } from 'firebase/firestore';
 import { db } from '../config/config';
 
 export const removeCartItem = async (cartItem) => {
@@ -41,13 +28,14 @@ export const removeCartItem = async (cartItem) => {
 export const increaseCartAmount = async (storeId, variant, amount) => {
   const storeRef = doc(db, 'ice-cream', storeId);
   const cartRef = doc(db, 'eshop-cart', `${storeId}_${variant}`);
-  await runTransaction(db, async (transaction) => {
+
+  const response = await runTransaction(db, async (transaction) => {
     const storeDoc = await transaction.get(storeRef);
     const cartDoc = await transaction.get(cartRef);
     let cartAmount = 0;
     if (!storeDoc.exists()) {
       throw new Error(
-        'Item does not exist in store database, could not be deleted'
+        'Item does not exist in store database, could not be added'
       );
     }
     if (cartDoc.exists()) {
@@ -75,7 +63,7 @@ export const decreaseCartAmount = async (cartItem) => {
     const cartDoc = await transaction.get(cartRef);
     if (!cartDoc.exists()) {
       throw new Error(
-        'Item does not exist in cart database, could not be deleted'
+        'Item does not exist in cart database, could not be removed'
       );
     }
     const storeDoc = await transaction.get(storeRef);

@@ -1,12 +1,7 @@
 import {
-  addDoc,
   collection,
-  deleteDoc,
-  doc,
-  getDoc,
   getDocs,
   onSnapshot,
-  updateDoc,
   query,
   where,
 } from 'firebase/firestore';
@@ -17,14 +12,6 @@ export const getStoreItems = async () => {
   const snapshot = await getDocs(icecreamRef);
   const docArr = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   console.log(docArr);
-  return docArr;
-};
-
-export const getFavouriteItems = async () => {
-  const icecreamRef = collection(db, 'ice-cream');
-  const q = query(icecreamRef, where('favourited', '==', true));
-  const snapshot = await getDocs(q);
-  const docArr = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   return docArr;
 };
 

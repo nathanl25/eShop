@@ -1,12 +1,10 @@
 import { createContext } from 'react';
 import {
   storeSubscription,
-  getFavouriteItems,
   favouriteSubscription,
 } from '../services/store-services';
 import { cartSubscription } from '../services/cart-services';
 import { useEffect, useState } from 'react';
-import { useQuery } from '../hooks/useQuery';
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {

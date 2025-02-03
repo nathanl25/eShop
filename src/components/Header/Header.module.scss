@@ -1,22 +1,37 @@
+@use '../../scss/variables/colours' as clr;
+@use '../../scss/variables/fonts' as fnt;
+@use '../../scss/partials/media_queries' as mq;
 .container {
-  border: 2px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 80%;
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: 3em;
+  padding-bottom: 3em;
   margin-left: auto;
   margin-right: auto;
 }
 .link {
   text-decoration: none;
-  color: blue;
   &_active {
-    color: green;
     display: none;
   }
 }
 .wrapper {
   min-width: 110px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+nav {
+  background-color: clr.$charcoal_lite;
+}
+.heading {
+  color: clr.$cream;
+  font-family: fnt.$font_heading;
+  font-style: italic;
+  font-size: 2.5em;
+}
+.cart {
+  font-family: fnt.$font_body;
+  color: clr.$gold;
 }

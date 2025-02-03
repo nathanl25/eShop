@@ -1,0 +1,44 @@
+@use '../../scss/variables/colours' as clr;
+@use '../../scss/variables/fonts' as fnt;
+@use '../../scss/partials/media_queries' as mq;
+.wrapper {
+  padding: 1em;
+  outline: 1px solid clr.$bronze;
+  border-radius: 4px;
+  &:hover {
+    outline: 3px solid clr.$bronze;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  border: 1px solid clr.$bronze;
+  max-height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: clr.$charcoal;
+  color: clr.$ivory;
+}
+.adjuster_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+a {
+  max-height: 100%;
+  color: clr.$ivory;
+  font-family: fnt.$font_alt_two;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-style: italic;
+  }
+  .cart_img {
+    max-height: 125px;
+  }
+}

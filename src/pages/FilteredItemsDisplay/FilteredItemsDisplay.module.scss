@@ -1,0 +1,25 @@
+@use '../../scss/variables/colours' as clr;
+@use '../../scss/variables/fonts' as fnt;
+@use '../../scss/partials/media_queries' as mq;
+.layout {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 2em;
+  justify-content: space-between;
+  padding-bottom: 2em;
+}
+.wrapper {
+  background-color: clr.$charcoal;
+}
+.heading {
+  margin: 0;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+  color: clr.$cream;
+  font-family: fnt.$font_body;
+}

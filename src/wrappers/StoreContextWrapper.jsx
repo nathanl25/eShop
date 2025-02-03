@@ -1,31 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
-import { useState } from 'react';
 import Header from '../components/Header/Header';
 import ItemPage from '../pages/ItemPage/ItemPage';
 import CartPage from '../pages/CartPage/CartPage';
-import { getStoreItems } from '../services/store-services';
-import { getCartItems } from '../services/cart-services';
 import FilteredItemsDisplay from '../pages/FilteredItemsDisplay/FilteredItemsDisplay';
 import HomePage from '../pages/HomePage/HomePage';
-import { StoreContext } from '../context/StoreContextProvider';
-import { useContext } from 'react';
-import { useEffect } from 'react';
 export const StoreContextWrapper = () => {
-  //   const { setStore, setStoreFetch, setError } = useContext(StoreContext);
-
-  //   useEffect(() => {
-  //     setStoreFetch('LOADING');
-  //     getStoreItems()
-  //       .then((data) => {
-  //         setStoreFetch('SUCCESS');
-  //         setStore(data);
-  //       })
-  //       .catch((e) => {
-  //         setError(e);
-  //         setStoreFetch('FAILURE');
-  //       });
-  //   }, []);
-  //   console.log(storeItems);
   return (
     <>
       <BrowserRouter>

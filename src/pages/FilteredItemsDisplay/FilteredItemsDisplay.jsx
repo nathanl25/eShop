@@ -4,6 +4,7 @@ import {
   filterStoreCategory,
   getStoreItems,
 } from '../../services/store-services';
+import CardContainer from '../../containers/CardContainer/CardContainer';
 import { useQuery } from '../../hooks/useQuery';
 const FilteredItemsDisplay = () => {
   const { category } = useParams();
@@ -17,20 +18,18 @@ const FilteredItemsDisplay = () => {
           args: [category],
         }
   );
-  console.log(data);
-  console.log(fetch);
   return (
-    <>
-      <h1>{category}</h1>
-      {fetch === 'SUCCESS' && (
-        <ol>
-          {data.map((value) => (
-            <li key={value.id}>{value.flavour}</li>
-          ))}
-        </ol>
+    <section className={classes.wrapper}>
+      {category === 'all' && <h1 className={classes.heading}>All products</h1>}
+      {category !== 'all' && (
+        <h1 className={classes.heading}>Category: {category}</h1>
       )}
-      {fetch === 'LOADING' && <h4>Loading items...</h4>}
-    </>
+      <section className={classes.layout}>
+        {fetch === 'SUCCESS' &&
+          data.map((item) => <CardContainer key={item.id} storeItem={item} />)}
+        {fetch === 'LOADING' && <h4>Loading items...</h4>}
+      </section>
+    </section>
   );
 };
 

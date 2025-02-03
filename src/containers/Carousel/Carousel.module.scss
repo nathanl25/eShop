@@ -1,11 +1,13 @@
+@use '../../scss/variables/colours' as clr;
 .container {
   display: flex;
   flex-direction: row;
-  width: 800px;
-  height: 400px;
-  justify-content: space-between;
+  max-width: 400px;
+  aspect-ratio: 1;
+  overflow: clip;
   align-items: center;
-  gap: 2em;
-  border: 2px solid black;
+  border: 2px solid clr.$bronze;
   position: relative;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }

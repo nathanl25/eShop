@@ -1,10 +1,42 @@
+@use '../../scss/variables/colours' as clr;
+@use '../../scss/variables/fonts' as fnt;
+@use '../../scss/partials/media_queries' as mq;
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: clr.$charcoal;
 }
 .category_link__container {
   display: flex;
   flex-direction: row;
   gap: 2em;
+}
+.heading {
+  color: clr.$cream;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-size: 2.5em;
+  font-family: fnt.$font_body;
+  font-style: italic;
+}
+a {
+  text-decoration: none;
+}
+.subheading {
+  font-family: fnt.$font_alt_two;
+  font-size: 1.5em;
+  color: clr.$cream;
+  font-weight: 400;
+}
+.altsheading {
+  font-family: fnt.$font_alt_two;
+  text-align: center;
+  font-size: 1.25em;
+  color: clr.$cream;
+}
+.link {
+  &:hover {
+    text-shadow: #fff8e759 0px 10px 15px;
+  }
 }
