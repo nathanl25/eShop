@@ -10,9 +10,10 @@ A front end website designed to emulate an ice-cream store. Cart and Store data 
 
 ## To-do:
 
-[] - Custom Hook for transactions
-[] - Compatibility for mobile view
-[] - Toast Notifications
-[] - Subtotal for cart items
-[] - Three item carousel
-[] - TypeScript conversion
+- [] - Custom Hook for transactions
+- [] - Compatibility for mobile view
+- [] - Toast Notifications
+- [] - Subtotal for cart items
+- [] - Three item carousel
+- [] - TypeScript conversion
+- [] - Skeletons for loading items
