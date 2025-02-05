@@ -17,3 +17,4 @@ A front end website designed to emulate an ice-cream store. Cart and Store data 
 - [ ] Three item carousel
 - [ ] TypeScript conversion
 - [ ] Skeletons for loading items
+- [ ] Routing for invalid URLs
